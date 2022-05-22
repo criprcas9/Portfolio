@@ -2,23 +2,68 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-family: 'Montserrat', sans-serif;
 }
+
 html{
 	scroll-behavior: smooth;
 }
 
-header{
-	background-image: url(images/bg.jpg);
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+section {
+	padding: 0 5rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.main {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	font-size: 0.8rem;
+	align-items: left;
+	justify-content: flex-end;
+	padding: 1rem 0;
+	width: 100%;
+	z-index: 20;
+}
+
+.intro {
+	background-image: url(images/background.jpg);
 	height: 100vh;
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
+
+.nav-logo {
+	margin-left: 1rem;
+	margin-right: auto;
+	width: 2rem;
+}
+
 ul{
-	float: right;
 	list-style-type: none;
-	margin-top: 25px;
-	margin-right: 25px;
 }
 ul li{
 	display:  inline-block;
@@ -27,6 +72,7 @@ ul li a{
 	text-decoration: none;
 	color: white;
 	padding: 5px 20px;
+	margin-left: 1rem;
 	border: 1px solid transparent;
 }
 ul li a:hover{
@@ -39,107 +85,147 @@ ul li.active a{
 	color: #000;
 }
 
-#home{
-	display: flex;
-	flex-direction: column;
-}
-#home::before{
-	content:"";
-	position: absolute;
-	top: 0;
-	right: 0;
+/* Intro Section */
+.intro {
+	width: 100%;
+	position: relative;
 }
 
-.one{
-	display: flex;
-	flex-direction: column;
-	align-items: centre;
-	position: absolute;
-	top: 30%;
-}
-
-.heading{
-	font-family: algeria;
-	font-size: 3rem;
-	
-	margin: 40px 0px;
+.home {
 	color: white;
-}
-.button{
-	padding: 10px 35px;
-	background-color: transparent;
-	border: 1px solid white;
-	outline: none;
-	transition: .6s ease;
+	position: absolute;
+	top: 40%;
 }
 
-.button:hover{
-	cursor: pointer;
+.home h1 {
+	font-size: 4rem;
+}
+
+.home h4 {
 	background-color: white;
 	color: black;
+	width: fit-content;
+	padding: 0.5rem 1rem;
 }
 
-#about{
-	display: flex;
-	flex-direction: column;
+/* About Section */
+.about {
+	padding: 2rem 5rem;
 }
 
-#pic{
-	display: flex;
-	flex-direction: column;
-}
-#pic img{
-	width: 300px;
-	height:300px;
+.about h1{
+	text-align: center;
 }
 
-#intro{
-	display: flex;
-	text-align: justify;
-	padding: 10px;
+.profile {
+	border-radius: 100%;
+	width: 20rem;
 }
 
-#forms{
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	background-color: rgba(0,0,0,0.9);
-	color: #fff;
+.about-grid {
+	display: grid;
+	margin: 3rem 0;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 2rem;
+	padding: 2rem;
 }
 
-.form{
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	align-items: center;
-	margin: 20px 0px;
-}
-
-.input{
-	padding:10px;
-	margin:15px;
-	width:20%;
-	border: none;
-	outline: none;
-}
-
-#msg{
-	padding: 10px;
-	margin: 15px;
-	width: 30%;
-	border: none;
-	outline: none;
-}
-
-#send{
-	padding: 15px;
-	margin:15px;
-	width:30%;
-	border: none;
-	outline: none;
-}
-
-#send:hover{
+.about-card {
+	position: relative;
+	border: 1px solid black;
+	border-radius: 4px;
 	cursor: pointer;
-	box-shadow:0 0 10px white;
+	padding: 2rem 1rem 1rem;
+	transition: all ease-in-out 0.5s;
+}
+
+.about-card a{
+	color: green;
+}
+
+.about-card:hover {
+	background-color: black;
+	color: white;
+	transform: scale(1.02);
+}
+
+.card-symbol {
+	align-items: center;
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	border-radius: 100%;
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 100%;
+	top: -2rem;
+	left: 40%;
+}
+
+/* Form Section */
+
+.form {
+	background-color: #383838;
+	color: white;
+	padding: 2rem 0;
+}
+
+.form form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 50%;
+	margin: auto;
+}
+
+.form input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+}
+
+.form textarea {
+	background-color: transparent;
+	border: 1px solid white;
+	border-radius: 4px;
+}
+
+.form textarea, .form input {
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.5rem;
+	color: white;
+}
+
+.form textarea, .form input:focus {
+	outline: none;
+}
+
+.send {
+	background-color: transparent;
+	border: 1px solid white;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	width: fit-content;
+	margin: auto;
+}
+
+.send:hover {
+	background-color: white;
+	color: #15133C;
+}
+
+/* Footer Section */
+.footer {
+	display: flex;
+	justify-content: space-around;
+	padding: 3rem 0;
+}
+.footer a {
+	color: black;
 }
